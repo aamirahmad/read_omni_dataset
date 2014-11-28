@@ -1,0 +1,9 @@
+Header header
+bool found
+float32 x
+float32 y
+float32 z
+float32 BlobSize
+float32 blobXCenterPixel
+float32 blobYCenterPixel
+float32 mismatchFactor

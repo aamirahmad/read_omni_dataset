@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+  <name>read_omni_dataset</name>
+  <version>0.0.0</version>
+  <description>This package is a read module that asynchronously reads messages from the socrob omni dataset. The purpose of this package is to provide a quick and ready-to-start platform for developing and implementing perception related algorithms on the omni dataset</description>
+  <maintainer email="aamir.iitkgp@gmail.com">aamir</maintainer>
+  <license>GPLv3</license>
+
+  <build_depend>cmake_modules</build_depend>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>message_generation</build_depend>
+  
+  <run_depend>message_runtime</run_depend>   
+  <run_depend>roscpp</run_depend> 
+  <run_depend>cv_bridge</run_depend>
+  <run_depend>rospy</run_depend>
+
+</package>
