@@ -75,21 +75,16 @@ Note that the items enumerated above are less than all the measurement data that
 
 
 ==================================
-Downloading, extracting and using 
-the omni-dataset. 
+Downloading, extracting and using the omni-dataset. 
 ==================================
-################################################################################
-################################################################################
+
 
 Caution: The dataset is huge and may take hours to download depending upon your 
 internet connection speed. Furthermore, after decompression and extraction, you
 will require around 50 GB of space to store and access all files (either raw 
 format or rosbags format)
 
-################################################################################
-################################################################################
 
-################################################################################
 Raw format: http://datasets.isr.ist.utl.pt/lrmdataset/4_Robots_DataSet/rawdata/
 In here, you will find the following files:
 1. Robots_Images_and_Odometry.tar.gz
@@ -99,10 +94,8 @@ In here, you will find the following files:
 The file names above are self-explanatory. Currently, in the raw dataset you will only find the raw images and odometry. As mentioned in the previous section, the extracted robot-frame measurement data of the orange ball and the landmarks are not present in the raw format of the dataset. However, they are present in the rosbags format as explained further. In case you really require this secondary measurements in raw format, please feel free to email me directly.
 
 Please use any decompression and file extraction software available of unix-like systems or perhaps Windows (Not tested, though)
-################################################################################
 
 
-################################################################################
 Rosbags format: http://datasets.isr.ist.utl.pt/lrmdataset/4_Robots_DataSet/rosbags/
 In here, you will find the following files:
 1. four_msl_robots_dataset.tar.xz
@@ -125,7 +118,6 @@ OMNI5_odomballLandmarks.bag
 The names are self explanatory. Each one contains the raw images (ppm format), ball and landmark measurement data and odometry data from the corresponding OMNI robot.
 An example output of rosbag info on one of these bags is as follows.
 
-----------------------------------------------------------------------
 path:        /path-to-datasetDirectory/OMNI1_odomballLandmarks.bag
 version:     2.0
 duration:    8:00s (480s)
@@ -142,14 +134,14 @@ topics:      omni1/devices/topcam/image_raw   12271 msgs    : sensor_msgs/Image
              omni1/landmarkspositions         12271 msgs    : socrobdata_to_rosbags/LRMLandmarksData
              omni1/odometry                   15530 msgs    : nav_msgs/Odometry                     
              omni1/orangeball3Dposition       12270 msgs    : socrobdata_to_rosbags/BallData
-----------------------------------------------------------------------
+
 
 Other rosbags have similar contents. Please note here that the ros message type "LRMLandmarksData" and "BallData" are custom-made and in fact provided by the package read_omni_dataset. You can either copy these message files from the msg folder of the read_omni_dataset ros package and use them in your own custom packages or simply use them within this package. Remember that the path to custom messages (here it is socrobdata_to_rosbags/) is irrelevant.
 
 2. four_robot_experiment_GT.bag
 Output of rosbag info on this bag is as follows.
-----------------------------------------------------------------------
-path:        /path-to-datasetDirectory/four_robot_experiment_GT.bag                                                                                                       
+
+path:        /path-to-datasetDirectory/four_robot_experiment_GT.bag                                                                                                
 version:     2.0                                                                                                                                                                              
 duration:    7:50s (470s)                                                                                                                                                                     
 start:       May 07 2012 16:50:06.99 (1336402206.99)                                                                                                                                          
@@ -159,10 +151,10 @@ messages:    10118
 compression: none [20/20 chunks]
 types:       socrobdata_to_rosbags/LRMGTData [a7f5dd7185c9e08c3c3b2baefda96b70]
 topics:      gtData_4robotExp   10118 msgs    : socrobdata_to_rosbags/LRMGTData
-----------------------------------------------------------------------
+
 
 The message type LRMGTData has the following contents:
-----------------------------------------------------------------------
+
 read_omni_dataset/BallData orangeBall3DGTposition
 string LeftFilename
 string RightFilename
@@ -174,7 +166,7 @@ geometry_msgs/PoseWithCovariance poseOMNI4
 geometry_msgs/PoseWithCovariance poseOMNI3
 geometry_msgs/PoseWithCovariance poseOMNI1
 geometry_msgs/PoseWithCovariance poseOMNI5
-----------------------------------------------------------------------
+
 
 Almost all of the above contents are named in a self-explanatory way. "RightFilename" refers to the image file name from the riht-camera of the stereo-vision ground truth system's camera. Similarly, the left filename. This filename is provided to look up for the image file in the folder named "Right" which can be obtained by extracting the third archive (see point 3 below). The image file can then be used in many ways, for example, to overlay the GT values of thhe robot position/ball position on to the images from the right camera.
 
@@ -185,13 +177,10 @@ tar xf Right.tar.xz
 
 After extraction, you will find the folder "Right" which has the images from the right-side camera of the stereo vision ground truth system. See point 2 above on how to use it. 
 
-             
-################################################################################
 
 
 ==================================
-How to use the read_omni_dataset
-package with the omni-dataset
+How to use the read_omni_dataset package with the omni-dataset
 ==================================
 Step-wise instructions
 0. Make sure that you have ros (indigo or hydro) installed.
@@ -207,7 +196,7 @@ Step-wise instructions
 
 If everything went fine, you will see a huge stream of rosouts (a lot of messages outputted onto the terminal). An example extract of those outputs is given below:
 
-----------------------------------------------------------------------
+
 [ WARN] [1417774021.789838378]:  got landmark data from teammate robot (ID=4)
 [ INFO] [1417774021.789848316]: Landmark 4 found in the image, refer to the method to see how covariances are calculated
 [ INFO] [1417774021.789856914]: Landmark 5 found in the image, refer to the method to see how covariances are calculated
@@ -222,7 +211,7 @@ If everything went fine, you will see a huge stream of rosouts (a lot of message
 [ INFO] [1417774021.807326304]: Landmark 6 found in the image, refer to the method to see how covariances are calculated
 [ INFO] [1417774021.807335590]: Landmark 7 found in the image, refer to the method to see how covariances are calculated
 [ INFO] [1417774021.807343925]: Landmark 8 found in the image, refer to the method to see how covariances are calculated
-----------------------------------------------------------------------
+
 
 What this basically shows is what read_omni_dataset rosnode is able to read directly from the rosbags. As stated before, the purpose of this rospackage is to provide a starting platform to develop perception related algorithms. The read_omni_dataset rosnode asynchronously reads the sensor messages from the rosbags and generates a callback specific to the message. The callbacks are per robot per sensor but can be synced and stitched using synchronization packages available in ros. The developer is invited to check the definitions of the callback functions and develop their perception algorithm there.
 
@@ -233,11 +222,13 @@ ROB_HT = 0.81; // fixed height of the OMNI robots above ground in meter.
 MY_ID = 1; // Use this flag to set the ID of the robot expected to run a certain decentralized algorithm. Robot with MY_ID will be trated as the self robot running the algorithm while the rest will be considered teammates. Note that in the dataset there are 4 robots with IDs 1,3,4 and 5. Robot with ID=2 is not present.
 
 In the next improvements, these parameters will be moved to rosnode arguments and can be set in the launch file.
+
 ==================================
 References
 ==================================
 
 [1] An Integrated Bayesian Approach to Multi-Robot Cooperative Perception, Aamir Ahmad, Ph.D. Thesis, Instituto Superior Técnico, Universidade Técnica de Lisboa, 2013.
+
 [2] 3D to 2D bijection for spherical objects under equidistant fisheye projection, Aamir Ahmad, João Xavier, José Santos-Victor, Pedro Lima, Computer Vision and Image Understanding (CVIU), Volume 125, August 2014, Pages 172-183, ISSN 1077-3142, http://dx.doi.org/10.1016/j.cviu.2014.04.004.
 
 
