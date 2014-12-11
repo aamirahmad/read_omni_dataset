@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>read_omni_dataset</name>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <description>This package is a read module that asynchronously reads messages from the socrob omni dataset. The purpose of this package is to provide a quick and ready-to-start platform for developing and implementing perception related algorithms on the omni dataset</description>
   <maintainer email="aamir.iitkgp@gmail.com">aamir</maintainer>
   <license>GPLv3</license>
