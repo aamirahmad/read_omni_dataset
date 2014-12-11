@@ -2,6 +2,9 @@
 Changelog for package read_omni_dataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.0.1 (2014-12-11)
 ------------------
 * Update README.md
