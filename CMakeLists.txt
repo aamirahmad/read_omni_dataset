@@ -38,6 +38,8 @@ CATKIN_DEPENDS roscpp rospy message_runtime
 #  DEPENDS system_lib
 )
 
+
+
 ###########
 ## Build ##
 ###########
@@ -65,5 +67,6 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 
 add_executable(read_omni_dataset src/read_omni_dataset.cpp)
+add_dependencies(read_omni_dataset read_omni_dataset_generate_messages_cpp)
 target_link_libraries(read_omni_dataset ${catkin_LIBRARIES} ${rosbag_LIBRARIES})
 
