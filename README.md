@@ -16,6 +16,8 @@ In case you want the raw data, i.e., simply the image files from the robot's cam
 
 http://datasets.isr.ist.utl.pt/lrmdataset/4_Robots_DataSet/rawdata/
 
+LICENSE: Please note that the dataset is also (as well as this ros package) released under the GNU GPLv3 License. 
+
 ==================================
 Citation
 ==================================
