@@ -22,6 +22,7 @@ add_message_files(
   BallData.msg
   LRMLandmarksData.msg
   LRMGTData.msg
+  RobotState.msg
 )
 
 generate_messages(
