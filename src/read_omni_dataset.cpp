@@ -1,12 +1,10 @@
 
 #include "read_omni_dataset.h"
 
-
 inline void addLandmark(int vertexId, double x, double y)
 {
   ROS_INFO("A fixed landmark with ID %d at position x=%f, y=%f must be created in your application, e.g., fixed vertices in a graph if your application is graph-based",vertexId,x,y);
 }
-
 
 void ReadRobotMessages::initializeFixedLandmarks()
 {
@@ -37,7 +35,7 @@ void SelfRobot::selfOdometryCallback(const nav_msgs::Odometry::ConstPtr& odometr
 
   //Below is an example how to extract the odometry from the message and use it to propogate the robot state by simply concatenating successive odometry readings-
   double odomVector[3] = {odometry->pose.pose.position.x, odometry->pose.pose.position.y, tf::getYaw(odometry->pose.pose.orientation)};
-  
+
   Eigen::Isometry2d odom; 
   odom = Eigen::Rotation2Dd(odomVector[2]).toRotationMatrix();
   odom.translation() = Eigen::Vector2d(odomVector[0], odomVector[1]);  
@@ -124,8 +122,6 @@ void SelfRobot::selfLandmarkDataCallback(const read_omni_dataset::LRMLandmarksDa
   }
   
  }
-
- 
 
 ////////////////////////// METHOD DEFINITIONS OF THE TEAMMATEROBOT CLASS //////////////////////
 

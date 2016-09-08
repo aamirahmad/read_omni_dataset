@@ -1,0 +1,22 @@
+<launch>
+    <arg name="path" default="/home/$(optenv USER gsl)/datasets/omni/four_msl_robots_dataset"/>
+    <node
+        pkg="rosbag"
+        type="play"
+        name="player"
+        output="screen"
+        args="-l $(arg path)/OMNI1_odomballLandmarks.bag $(arg path)/OMNI3_odomballLandmarks.bag $(arg path)/OMNI4_odomballLandmarks.bag $(arg path)/OMNI5_odomballLandmarks.bag $(arg path)/four_robot_experiment_GT.bag"
+    />
+
+    <node pkg="read_omni_dataset" type="read_omni_dataset" name="reader" output="screen">
+    	<param name="NUM_ROBOTS" value="5"/>
+    	<param name="MY_ID" value="1"/>
+    	<param name="ROB_HT" type="double" value="0.81"/>
+    	<param name="LANDMARK_COV/K1" type="double" value="2.0"/>
+    	<param name="LANDMARK_COV/K2" type="double" value="0.5"/>
+    	<param name="LANDMARK_COV/K3" type="double" value="0.2"/>
+    	<param name="LANDMARK_COV/K4" type="double" value="0.5"/>
+    	<param name="LANDMARK_COV/K5" type="double" value="0.5"/>
+    </node>
+
+</launch>
