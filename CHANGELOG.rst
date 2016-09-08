@@ -2,6 +2,11 @@
 Changelog for package read_omni_dataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.0.3 (2016-09-08)
+* Added launch file to play rosbag files and launch the reader
+* Reader is now customizable via the parameter server (check example launch file)
+* Contibutors: guilhermelawless
+
 0.0.2 (2014-12-11)
 ------------------
 
