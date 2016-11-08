@@ -33,7 +33,7 @@ generate_messages(
 )
 
 catkin_package(
-#  INCLUDE_DIRS include
+INCLUDE_DIRS include
 #  CATKIN_DEPENDS roscpp rospy
 CATKIN_DEPENDS roscpp rospy message_runtime
 #  DEPENDS system_lib
@@ -66,8 +66,11 @@ INCLUDE_DIRECTORIES(${Eigen_INCLUDE_DIRS})
 find_package(Boost COMPONENTS filesystem REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
 
+include_directories(include)
 
-add_executable(read_omni_dataset src/read_omni_dataset.cpp)
-add_dependencies(read_omni_dataset read_omni_dataset_generate_messages_cpp)
+add_library(read_omni_dataset src/read_omni_dataset.cpp)
 target_link_libraries(read_omni_dataset ${catkin_LIBRARIES} ${rosbag_LIBRARIES})
 
+#add_executable(read_omni_dataset_node src/read_omni_dataset.cpp)
+#add_dependencies(read_omni_dataset read_omni_dataset_generate_messages_cpp)
+#target_link_libraries(read_omni_dataset_node ${catkin_LIBRARIES} ${rosbag_LIBRARIES} read_omni_dataset)

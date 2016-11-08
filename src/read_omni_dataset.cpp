@@ -1,5 +1,5 @@
 
-#include "read_omni_dataset.h"
+#include <read_omni_dataset/read_omni_dataset.h>
 
 
 inline void addLandmark(int vertexId, double x, double y)
