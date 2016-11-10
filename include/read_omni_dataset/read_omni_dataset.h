@@ -16,8 +16,6 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
-#define USE_NEWER_READ_OMNI_PACKAGE true
-
 // #define M_PI        3.141592653589793238462643383280    /* pi */
 
 
