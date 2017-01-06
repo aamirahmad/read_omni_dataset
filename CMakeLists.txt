@@ -23,6 +23,7 @@ add_message_files(
   LRMLandmarksData.msg
   LRMGTData.msg
   RobotState.msg
+  Estimate.msg
 )
 
 generate_messages(
