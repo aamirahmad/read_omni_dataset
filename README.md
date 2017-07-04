@@ -1,12 +1,8 @@
-==================================
-read_omni_dataset
-==================================
+# read_omni_dataset
 
 This is a ROS package to systematically read sensor msgs from the omni-dataset (soccer robots dataset). 
 
-==================================
-Dataset download
-==================================
+## Dataset download
 
 Please download the soccer robot dataset in the rosbags format here (Please see instructions below on how to use the rosbags):
 
@@ -18,9 +14,7 @@ http://datasets.isr.ist.utl.pt/lrmdataset/4_Robots_DataSet/rawdata/
 
 LICENSE: Please note that the dataset is also (as well as this ros package) released under the GNU GPLv3 License. 
 
-==================================
-Citation
-==================================
+## Citation
 
 If you plan to use the dataset, please cite it as follows:
 
@@ -34,9 +28,7 @@ If you plan to use the dataset, please cite it as follows:
     note    = "\"Instituto Superior T\'ecnico\" was formerly within  \"Universidade T\'ecnica de Lisboa\" and is now within \"Universidade de Lisboa\""
 }
 
-==================================
-Brief Description
-==================================
+## Brief Description
 
 This package is designed as a read module that asynchronously reads messages from the socrob omni dataset. The purpose of this package is to provide a quick and ready-to-start platform for developing and implementing perception related algorithms utilizing the the omni dataset. In the wiki of this package ( https://github.com/aamirahmad/read_omni_dataset/wiki ), we first describe what this dataset has, then provide instructions on how to download, extract and run the bag files. Subsequently, you can find information on how to use this package to access the contents of the omni-dataset in the rosbags format. Of course, you are welcome to develop and extend this package as per your requirement. Comments and suggestions on improving this read-module package are also appreciated. On the other hand, you can write your own ros package or non-ros softwares to read the omni-dataset in either the rosbags format or the the raw format (as mentioned in the download section above).
 
