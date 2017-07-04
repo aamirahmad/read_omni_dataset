@@ -61,8 +61,8 @@ CATKIN_DEPENDS roscpp rospy message_runtime
 #         message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 # endif()
 
-FIND_PACKAGE(Eigen REQUIRED)
-INCLUDE_DIRECTORIES(${Eigen_INCLUDE_DIRS})
+FIND_PACKAGE(Eigen3 REQUIRED)
+INCLUDE_DIRECTORIES(${Eigen3_INCLUDE_DIRS})
 
 find_package(Boost COMPONENTS filesystem REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})

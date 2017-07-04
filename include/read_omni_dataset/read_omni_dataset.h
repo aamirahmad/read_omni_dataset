@@ -10,8 +10,8 @@
 #include <boost/bind.hpp>
 #include <boost/ref.hpp>
 
-#include <Eigen/Core>
-#include <Eigen/Geometry>
+#include <eigen3/Eigen/Core>
+#include <eigen3/Eigen/Geometry>
 
 #include "ros/ros.h"
 #include "std_msgs/String.h"
